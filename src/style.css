@@ -42,13 +42,13 @@ h3 {
   margin: 5px;
 }
 
-#current-day {
+.date {
   font-weight: 400;
   position: relative;
   right: -24px;
   bottom: 10px;
 }
-#current-time {
+.time {
   font-weight: 500;
   font-size: 24px;
   position: relative;
