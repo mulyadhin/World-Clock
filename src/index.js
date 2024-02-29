@@ -45,3 +45,25 @@ setInterval(function () {
   let baliTimeElement = document.querySelector("#bali .time");
   baliTimeElement.innerHTML = baliTime;
 }, 1000);
+
+function changeCity(event) {
+  setInterval(function () {
+    let cityTimeZone = event.target.value;
+    let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+    let cityDate = moment().tz(cityTimeZone).format("MMMM Do YYYY");
+    let cityTime = moment()
+      .tz(cityTimeZone)
+      .format("HH:mm:ss [<small>]A[</small>]");
+    let cityElement = document.querySelector("#city");
+    cityElement.innerHTML = `
+    <div class="container">
+      <h3>${cityName}</h3>
+      <p class="date" id="${cityName}">${cityDate}</p>
+      <p class="time" id="${cityName}">${cityTime}</p>
+    </div>
+  `;
+  }, 1000);
+}
+
+let selectCity = document.querySelector("#cities");
+selectCity.addEventListener("change", changeCity);
