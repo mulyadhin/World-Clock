@@ -135,7 +135,7 @@ function singleInformation(event) {
   }
 }
 
-let cityInformation = document.querySelectorAll(".container");
+let cityInformation = document.querySelectorAll("#city .container");
 cityInformation.forEach(function (element) {
   element.addEventListener("click", singleInformation);
 });
