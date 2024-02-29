@@ -64,7 +64,7 @@ function changeCity(event) {
       <p class="date" id="${cityName}">${cityDate}</p>
       <p class="time" id="${cityName}">${cityTime}</p>
     </div>
-    <a class="link" href="/">All cities</a>
+    <a id="link" href="/">All cities</a>
   `;
   }, 1000);
 }
