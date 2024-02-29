@@ -54,8 +54,8 @@ function changeCity(event) {
     }
     let cityName = cityTimeZone.replace("_", " ").split("/")[1];
     let cityDate = moment().tz(cityTimeZone).format("MMMM Do YYYY");
-    let cityTime = moment()
-      .tz(cityTimeZone)
+    let cityTime = moment
+      .tz("Europe/Berlin")
       .format("HH:mm:ss [<small>]A[</small>]");
     let cityElement = document.querySelector("#city");
     cityElement.innerHTML = `
@@ -71,3 +71,71 @@ function changeCity(event) {
 
 let selectCity = document.querySelector("#cities");
 selectCity.addEventListener("change", changeCity);
+
+function singleInformation(event) {
+  if (event.target.id === "berlin") {
+    let cityName = "Berlin";
+    let berlinDate = moment.tz("Europe/Berlin").format("MMMM Do YYYY");
+    let berlinTime = moment
+      .tz("Europe/Berlin")
+      .format("HH:mm:ss [<small>]A[</small>]");
+    let cityElement = document.querySelector("#city");
+    cityElement.innerHTML = `
+    <div class="container">
+      <h3>${cityName}</h3>
+      <p class="date" ">${berlinDate}</p>
+      <p class="time" ">${berlinTime}</p>
+    </div>
+    <a id="link" href="/">All cities</a>`;
+  }
+  if (event.target.id === "newYorkCity") {
+    let cityName = "New York City";
+    let nycDate = moment.tz("America/New_York").format("MMMM Do YYYY");
+    let nycTime = moment
+      .tz("America/New_York")
+      .format("HH:mm:ss [<small>]A[</small>]");
+    let cityElement = document.querySelector("#city");
+    cityElement.innerHTML = `
+    <div class="container">
+      <h3>${cityName}</h3>
+      <p class="date" ">${nycDate}</p>
+      <p class="time" ">${nycTime}</p>
+    </div>
+    <a id="link" href="/">All cities</a>`;
+  }
+  if (event.target.id === "auckland") {
+    let cityName = "Auckland";
+    let aucklandDate = moment.tz("Pacific/Auckland").format("MMMM Do YYYY");
+    let aucklandTime = moment
+      .tz("Pacific/Auckland")
+      .format("HH:mm:ss [<small>]A[</small>]");
+    let cityElement = document.querySelector("#city");
+    cityElement.innerHTML = `
+    <div class="container">
+      <h3>${cityName}</h3>
+      <p class="date" ">${aucklandDate}</p>
+      <p class="time" ">${aucklandTime}</p>
+    </div>
+    <a id="link" href="/">All cities</a>`;
+  }
+  if (event.target.id === "bali") {
+    let cityName = "Bali";
+    let baliDate = moment.tz("Asia/Makassar").format("MMMM Do YYYY");
+    let baliTime = moment
+      .tz("Asia/Makassar")
+      .format("HH:mm:ss [<small>]A[</small>]");
+    let cityElement = document.querySelector("#city");
+    cityElement.innerHTML = `
+    <div class="container">
+      <h3>${cityName}</h3>
+      <p class="date" ">${baliDate}</p>
+      <p class="time" ">${baliTime}</p>
+    </div>
+    <a id="link" href="/">All cities</a>`;
+  }
+}
+
+let cityInformation = document.querySelectorAll(".container");
+cityInformation.forEach(function (element) {
+  element.addEventListener("click", singleInformation);
+});
